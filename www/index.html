@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <!--
+        Using jQuery Mobile Theme Roller, create a theme,
+        download the .zip file, move your custom .css file into
+        your project, link to it via HTML.
+        Switch between themes with data-role="xxxx"
+        -->
+        <!-- <link rel="stylesheet" href="css/colors.min.css"> -->
+        <!--
+        Using FontSquirrel.com, find a WebFont Kit-ready font
+        Download the .zip. Extract the stylesheet.css AND .woff/.ttf/.otf
+        files into your project (font folder). Link HTML file to that
+        CSS file. Use the font with font-family  CSS code.
+        -->
+        <!-- <link rel="stylesheet" href="font/stylesheet.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>CBDb</title>
+    </head>
+    <body>
+
+        <!-- Welcome Page START -->
+        <section data-role="page" id="pgWelcome">
+            <header data-role="header" data-position="fixed">
+                <h1>CBDb</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>Welcome</h2>
+                <h3>Returning User:</h3>
+                <a href="#pgLogIn" data-role="button" data-transition="flip" data-icon="arrow-r" data-iconpos="right">Log In</a>
+                <h3>New User:</h3>
+                <a href="#pgSignUp" data-role="button" data-transition="slideup" data-icon="user">Sign Up</a>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <h4>Copyright &copy; 2017</h4>
+            </footer>
+        </section>
+        <!-- Welcome Page END -->
+
+        <!-- Sign Up Page START -->
+        <section data-role="page" id="pgSignUp">
+            <header data-role="header" data-position="fixed" data-add-back-btn="true">
+                <h1>CBDb</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>Sign Up</h2>
+                <form id="formSignUp">
+                    <label for="inEmailSignUp">Email:</label>   <input type="email" required="required" placeholder="john@smith.com" name="inEmailSignUp" id="inEmailSignUp">
+                    <label for="inPasswordSignUp">Password:</label> <input type="password" required="required" name="inPasswordSignUp" id="inPasswordSignUp">
+                    <label for="inPasswordConfirmSignUp">Confirm Password:</label> <input type="password" required="required" name="inPasswordConfirmSignUp" id="inPasswordConfirmSignUp">
+                    <input type="submit" value="Go" id="btnSignUp">
+                </form>
+                <div data-role="popup" class="ui-content" id="popErrorSignUpMismatch">Passwords don't match</div>
+                <div data-role="popup" class="ui-content" id="popErrorSignUpExists">Account already exists</div>
+                <div data-role="popup" data-dialog="true" data-dismissible="false" id="popSuccessSignUp">
+                    <header data-role="header">
+                        <h1>Success</h1>
+                    </header>
+                    <article role="main" class="ui-content">
+                        <p>
+                            Thanks. Ready to go<br>
+                            <a href="#pgLogIn" data-role="button" data-transition="flip">Log In</a>
+                        </p>
+                    </article>
+                </div>
+            </article>
+        </section>
+        <!-- Sign Up Page END -->
+
+        <!-- Log In Page START -->
+        <section data-role="page" id="pgLogIn">
+            <header data-role="header" data-position="fixed" data-add-back-btn="true">
+                <h1>CMDb</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>Log In</h2>
+                <form id="formLogIn">
+                    <label for="inEmailLogIn">Email: </label>
+                    <input type="email" required placeholder="bruce@wayne.tech" name="inEmailLogIn" id="inEmailLogIn">
+                    <label for="inPasswordLogIn">Password: </label>
+                    <input type="password" required name="inPasswordLogIn" id="inPasswordLogIn">
+                    <input type="submit" value="Go" id="btnLogIn">
+                </form>
+                <div data-role="popup" class="ui-content" id="popLogInNonexistant">Account doesn't exist!</div>
+                <div data-role="popup" class="ui-content" id="popLogInIncorrect">Wrong password!</div>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <h4>Copyright &copy; 2017</h4>
+            </footer>
+        </section>
+        <!-- Log In Page END -->
+
+        <!-- Home Page START -->
+        <section data-role="page" id="pgHome">
+            <header data-role="header" data-position="fixed">
+                <h1>CBDb</h1>
+                <a href="#pgAbout" data-transition="pop" class="ui-btn ui-btn-right ui-btn-icon-right ui-btn-icon-notext ui-corner-all ui-icon-info">Options</a>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>Welcome</h2>
+                <p>Use the Comic Book Database to save your comics!</p>
+                <a href="#pgSaveComics" data-role="button">Save Comics</a>
+                <a href="#pgViewComics" data-role="button">View Comics</a>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <h4 class="userEmail">Bottom</h4>
+            </footer>
+        </section>
+        <!-- Home Page END -->
+
+        <!-- About Page START -->
+        <section data-role="page" data-dialog="true" id="pgAbout">
+            <header data-role="header" data-position="fixed">
+                <h1>About</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <p>
+                    The Comic Book Database helps you keep track of your collection.
+                    Save your favorite series, including title, issue number, bar code,
+                    picture, notes, and more.
+                </p>
+                <p id="dbName"></p>
+                <p>
+                    <a href="#" data-role="button" data-icon="mail" id="btnContact">Contact Us</a>
+                </p>
+                <p>
+                    <a href="#" data-role="button" id="btnDeleteCollection">Delete Collection</a>
+                </p>
+                <p>
+                    <a href="#" data-role="button" data-icon="delete" id="btnLogOut">Log Out</a>
+                </p>
+            </article>
+        </section>
+        <!-- About Page END -->
+
+        <!-- Save Comics Page START -->
+        <section data-role="page" id="pgSaveComics">
+            <header data-role="header" data-position="fixed" data-add-back-btn="true">
+                <h1>Save Comics</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <!-- Collect data from the user about the Comic -->
+                <form id="formSaveComic">
+                    <!-- Seperate the Required Fields from the Optional Fields -->
+                    <fieldset>
+                        <!-- Text attached to the box onscreen -->
+                        <legend>Required</legend>
+                        <!-- <label> is text onscreen. <input> is the input box -->
+                        <label for="inTitle">Title:</label>   <input type="text" required placeholder="Mickey Mouse" name="inTitle" id="inTitle"><br>
+                        <label for="inNumber">Number:</label> <input type="number" required placeholder="12" name="inNumber" id="inNumber">
+                        <label for="inYear">Year:</label> <input type="number" required placeholder="1948" name="inYear" id="inYear"><br>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Optional</legend>
+                        <label for="inPublisher">Publisher:</label> <input type="text" placeholder="Disney" name="inPublisher" id="inPublisher"><br>
+                        <label for="inComment">Comment:</label> <textarea placeholder="First appearnce of Huey." name="inComment" id="inComment"></textarea><br>
+                        <hr />
+                        <input type="text" placeholder="BARCODE" id="inBarcode" />
+                        <input type="button" value="Scan Barcode" id="btnSaveBarcode" />
+                        <hr />
+                        <input type="text" disabled hidden id="inPhoto" />
+                        <input type="button" value="Take Photo" id="btnSavePhoto" />
+                        <input type="reset" value="Cancel"> <input type="submit" value="Save">
+                    </fieldset>
+                </form>
+                <div data-role="popup" class="ui-content" id="popSavedComic">Comic saved</div>
+            </article>
+        </section>
+        <!-- Save Comics Page END -->
+
+        <!-- View Comics Page START -->
+        <section data-role="page" id="pgViewComics">
+            <header data-role="header" data-position="fixed" data-add-back-btn="true">
+                <h1>View Comics</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <div id="divShowComicsTable"></div>
+            </article>
+        </section>
+        <!-- View Comics Page END -->
+
+        <!-- View Comics Info Page START -->
+        <section data-role="page" id="popViewComicInfo">
+            <header data-role="header">
+                <h1>Comic Info</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <div id="divShowComicsInfo">
+                    <p>Name: </p>
+                    <p>Number: </p>
+                    <p>Year: </p>
+                    <p>Publisher: </p>
+                    <p>Comment: </p>
+                    <p>Barcode: </p>
+                    <p><img src="" class="comicImg" /></p>
+                    <p><button id="btnDeleteComic">Delete</button><button id="btnEditComicPrep">Edit</button></p>
+                </div>
+            </article>
+        </section>
+        <!-- View Comics Info Page END -->
+
+        <!-- View Comics Info Page START -->
+        <section data-role="page" id="popEditComicInfo">
+            <header data-role="header">
+                <h1>Edit</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <form id="formEditComicInfo">
+                    <label for="inTitleEdit">Title: </label><input type="text" placeholder="Comic Name" name="inTitleEdit" id="inTitleEdit"><br>
+                    <label for="inNumberEdit">Number: </label><input type="number" placeholder="300" name="inNumberEdit" id="inNumberEdit"><br>
+                    <label for="inYearEdit">Year: </label><input type="number" placeholder="1996" name="inYearEdit" id="inYearEdit"><br>
+                    <label for="inPublisherEdit">Publisher: </label><input type="text" placeholder="Comic Publisher" name="inPublisherEdit" id="inPublisherEdit"><br>
+                    <label for="inCommentEdit">Comment: </label><textarea placeholder="First Appearnce" name="inCommentEdit" id="inCommentEdit"></textarea><br>
+                    <label for="inBarcodeEdit">Barcode: </label><textarea placeholder="503792104" name="inBarcodeEdit" id="inBarcodeEdit"></textarea><br>
+                    <input type="button" value="Cancel" id="btnEditComicCancel"> <input type="submit" value="Update">
+                </form>
+            </article>
+        </section>
+        <!-- View Comics Info Page END -->
+
+        <!-- TEMPLATE Page START -->
+        <section data-role="page" id="TEMPLATE">
+            <header data-role="header" data-position="fixed">
+                <h1>Top</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>TEMPLATE</h2>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <h4>Bottom</h4>
+            </footer>
+        </section>
+        <!-- TEMPLATE Page END -->
+
+        <script src="scripts/jquery-2.1.0.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <script src="scripts/pouchdb-6.3.4.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+    <!-- 
+        Name:       Victor Campos <vcampos@sdccd.edu>
+        Date:       2017-08-20
+        Project:    CBDb
+        Version:    1.0
+        Description:A comic book storing app. Save Title, Number, Year, Barcode, Photo and more. 
+    -->
+</html>
